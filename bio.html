@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — 1337 Wing</title>
+<style>
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background: #000814;
+  color: #B9D9EB;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+/* TERMINAL CONTAINER */
+
+  terminal {
+  background: black;
+  color: #00ff9c;
+  padding: 20px;
+  font-family: monospace;
+  border: 1px solid var(--accent);
+  margin: 40px auto;
+  max-width: 900px;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+/* GLOW ANIMATION */
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(0, 255, 156, 0.2); }
+  to { box-shadow: 0 0 25px rgba(0, 255, 156, 0.5); }
+}
+.terminal-container {
+  animation: glow 2s infinite alternate;
+}
+
+/* TYPING EFFECT */
+#story-text {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 1.2rem;
+}
+
+/* CURSOR */
+.cursor {
+  display: inline-block;
+  background: #00FF9C;
+  width: 8px;
+  margin-left: 2px;
+  animation: blink 0.8s infinite;
+  vertical-align: bottom;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* LINK BUTTON */
+a {
+  color: #00FF9C;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 40px;
+  border: 1px solid #00FF9C;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  background: #00FF9C;
+  color: #001429;
+}
+</style>
+</head>
+<body>
+
+<div class="terminal-container">
+  <div id="story-text"></div>
+  <a href="index.html">← Back to 1337 Wing</a>
+</div>
+
+<script>
+// Our story text
+const story = `
+> My name is Agent Red. My journey into technology began at age 12 when my father gave me a Raspberry Pi. That small, unassuming board sparked a persistent drive to explore hardware, Linux, and secure systems. Over the years, I’ve expanded my skills through robotics, modular computing projects, and Linux-first devices.
+
+> In 2025 I founded 1337 Wing. Our mission is to develop modular, Linux-first hardware with maximum durability, tactical usability, and adaptability for security professionals and open-source communities. Each product is built with modularity, repairability, and precision in mind.
+
+> Outside of development, I focus on personal projects, tech experimentation, and enjoying Vietnamese coffee as I map out the next innovation in secure technology.
+
+> Core Focus Areas:
+  ▸ Modular, repairable, and upgradeable devices
+  ▸ Linux-first, open-source hardware ecosystem
+  ▸ Tools designed for real-world security applications
+  ▸ Community education and responsible knowledge sharing
+`;
+
+// Typing animation
+const storyContainer = document.getElementById('story-text');
+let index = 0;
+
+function type() {
+  if(index < story.length){
+    let char = story[index];
+    storyContainer.innerHTML += char;
+    index++;
+    setTimeout(type, char === "\n" ? 50 : 15); // slower at line breaks
+    storyContainer.scrollTop = storyContainer.scrollHeight;
+  } else {
+    // add blinking cursor at end
+    const cursor = document.createElement('span');
+    cursor.classList.add('cursor');
+    storyContainer.appendChild(cursor);
+  }
+}
+
+// Start typing animation on load
+window.onload = type;
+</script>
+
+</body>
+</html>
