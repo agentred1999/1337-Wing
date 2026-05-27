@@ -154,12 +154,11 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
-
 .product-card {
   background: var(--card);
   border: 1px solid var(--accent);
   border-radius: 6px;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
 }
@@ -172,6 +171,28 @@ h2 {
   border-bottom: 1px solid var(--accent);
   background: #000814;
   padding: 10px;
+}
+<div class="product-card">
+  <div class="card-img-wrap">
+    <img src="computer.jpg" alt="1337 Wing Revenant">
+  </div>
+  <div class="product-info">
+    <h3>1337 Wing Revenant</h3>
+    <p>Linux-first red team laptop inspired by classic ThinkPads.</p>
+    <div class="price">$1000</div>
+    <button class="buy-btn" onclick="addToCart('revenant', '1337 Wing Revenant', 1000)">ADD TO CART</button>
+    <button class="spec-btn" onclick="openSpecs('revenant')">VIEW SPECS</button>
+  </div>
+</div>
+
+
+.product-card img[src="mesh.jpg"] {
+  height: 260px;
+  object-fit: contain;
+  object-position: center;
+  padding: 20px;
+  background: #000814;
+  mix-blend-mode: multiply;
 }
 
 .product-info {
@@ -310,7 +331,7 @@ footer a { color: var(--accent); }
 <section id="merch" class="container">
   <h2>1337 Wing Merch</h2>
   <div class="products">
-    <!-- Your merch cards here (unchanged) -->
+
     <div class="product-card">
       <img src="zippo1.jpg" alt="1337 Wing Tactical Zippo">
       <div class="product-info">
@@ -321,7 +342,62 @@ footer a { color: var(--accent); }
         <button class="spec-btn" onclick="openSpecs('zippo1')">VIEW SPECS</button>
       </div>
     </div>
-    <!-- ... other merch cards ... -->
+
+    <div class="product-card">
+      <img src="zippo2.jpg" alt="Red Team Zippo">
+      <div class="product-info">
+        <h3>Red Team Zippo</h3>
+        <p>Matte black Zippo engraved with "Red Team Division". Perfect for hackers and collectors.</p>
+        <div class="price">$60</div>
+        <button class="buy-btn" onclick="addToCart('zippo2', 'Red Team Zippo', 60)">ADD TO CART</button>
+        <button class="spec-btn" onclick="openSpecs('zippo2')">VIEW SPECS</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="hoodie1.jpg" alt="1337 Wing Hoodie">
+      <div class="product-info">
+        <h3>1337 Wing Hoodie</h3>
+        <p>Black hoodie with glow-in-the-dark hacker slogans. Limited run and numbered.</p>
+        <div class="price">$70</div>
+        <button class="buy-btn" onclick="addToCart('hoodie1', '1337 Wing Hoodie', 70)">ADD TO CART</button>
+        <button class="spec-btn" onclick="openSpecs('hoodie1')">VIEW SPECS</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="tshirt1.jpg" alt="1337 Wing T-Shirt">
+      <div class="product-info">
+        <h3>1337 Wing T-Shirt</h3>
+        <p>Soft cotton t-shirt with slogans like "sudo make me a sandwich". Collector's edition.</p>
+        <div class="price">$35</div>
+        <button class="buy-btn" onclick="addToCart('tshirt1', '1337 Wing T-Shirt', 35)">ADD TO CART</button>
+        <button class="spec-btn" onclick="openSpecs('tshirt1')">VIEW SPECS</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="usbducky.jpg" alt="USB Rubber Ducky">
+      <div class="product-info">
+        <h3>USB Rubber Ducky</h3>
+        <p>Limited-edition USB Ducky with 1337 Wing branding. For pentesting enthusiasts.</p>
+        <div class="price">$80</div>
+        <button class="buy-btn" onclick="addToCart('usb_ducky', 'USB Rubber Ducky', 80)">ADD TO CART</button>
+        <button class="spec-btn" onclick="openSpecs('usb_ducky')">VIEW SPECS</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="keycaps.jpg" alt="Custom Keycaps">
+      <div class="product-info">
+        <h3>Custom Keycaps</h3>
+        <p>Mechanical keyboard keycaps with hacker slogans. Glow-in-the-dark terminal vibes.</p>
+        <div class="price">$45</div>
+        <button class="buy-btn" onclick="addToCart('keycaps', 'Custom Keycaps', 45)">ADD TO CART</button>
+        <button class="spec-btn" onclick="openSpecs('keycaps')">VIEW SPECS</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -329,7 +405,40 @@ footer a { color: var(--accent); }
   <section id="shop">
     <h2>Signature Gear</h2>
     <div class="products">
-      <!-- Your signature gear cards here -->
+
+      <div class="product-card">
+        <img src="mesh.jpg" alt="1337 Wing Mesh Node">
+        <div class="product-info">
+          <h3>1337 Wing Mesh Node</h3>
+          <p>Meshtastic LoRa node for secure off-grid communication.</p>
+          <div class="price">$200</div>
+          <button class="buy-btn" onclick="addToCart('mesh', '1337 Wing Mesh Node', 200)">ADD TO CART</button>
+          <button class="spec-btn" onclick="openSpecs('mesh')">VIEW SPECS</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="computer.jpg" alt="1337 Wing Revenant">
+        <div class="product-info">
+          <h3>1337 Wing Revenant</h3>
+          <p>Linux-first red team laptop inspired by classic ThinkPads.</p>
+          <div class="price">$1000</div>
+          <button class="buy-btn" onclick="addToCart('revenant', '1337 Wing Revenant', 1000)">ADD TO CART</button>
+          <button class="spec-btn" onclick="openSpecs('revenant')">VIEW SPECS</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="cyber.jpg" alt="1337 Wing Cyberdeck">
+        <div class="product-info">
+          <h3>1337 Wing Cyberdeck</h3>
+          <p>Portable cybersecurity lab designed for mobile pentesting.</p>
+          <div class="price">$300</div>
+          <button class="buy-btn" onclick="addToCart('cyberdeck', '1337 Wing Cyberdeck', 300)">ADD TO CART</button>
+          <button class="spec-btn" onclick="openSpecs('cyberdeck')">VIEW SPECS</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -352,14 +461,13 @@ footer a { color: var(--accent); }
   </section>
 </div>
 
-<!-- FIXED TERMINAL SECTION -->
 <section class="terminal">
   <h2>Community Terminal</h2>
   <p>> Found a bug?</p>
   <p>> Want to suggest hardware?</p>
   <p>> Submit an idea.</p>
   <a href="https://github.com/agentred1999/1337-Wing/pulls" 
-     style="color:#00ff9c; text-decoration: underline; font-size: 1.1em;">
+     style="color:#00ff9c; text-decoration: underline;">
     OPEN ISSUE ON GITHUB →
   </a>
 </section>
@@ -371,7 +479,6 @@ footer a { color: var(--accent); }
   <a href="https://github.com/agentred1999/1337-Wing/pulls">GITHUB</a>
 </footer>
 
-<!-- Modals and Script remain the same -->
 <div id="specModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeSpecs()">&times;</span>
@@ -386,6 +493,14 @@ footer a { color: var(--accent); }
     <div id="cartItems"></div>
     <div id="cartTotal" style="margin-top:10px; font-weight:bold; color:#B9D9EB;"></div>
     <button onclick="checkout()" style="margin-top:15px; padding:10px 20px; background:#B9D9EB; color:#001F3F; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Checkout</button>
+    <div style="margin-top:20px; color:#00ff9c; font-family:monospace;">
+      <h3>Shipping Info</h3>
+      <label>Name:<br><input type="text" id="shipName" style="color:#00ff9c; background:black; border:1px solid #b9d9eb; width:100%; margin-top:4px; padding:6px;"></label><br><br>
+      <label>Street:<br><input type="text" id="shipStreet" style="color:#00ff9c; background:black; border:1px solid #b9d9eb; width:100%; margin-top:4px; padding:6px;"></label><br><br>
+      <label>City:<br><input type="text" id="shipCity" style="color:#00ff9c; background:black; border:1px solid #b9d9eb; width:100%; margin-top:4px; padding:6px;"></label><br><br>
+      <label>ZIP:<br><input type="text" id="shipZIP" style="color:#00ff9c; background:black; border:1px solid #b9d9eb; width:100%; margin-top:4px; padding:6px;"></label><br><br>
+      <label>Country:<br><input type="text" id="shipCountry" style="color:#00ff9c; background:black; border:1px solid #b9d9eb; width:100%; margin-top:4px; padding:6px;"></label>
+    </div>
   </div>
 </div>
 
@@ -398,7 +513,17 @@ window.addEventListener("load", function () {
   }, 3000);
 });
 
-const specsData = { /* your specsData object remains the same */ };
+const specsData = {
+  mesh: `<h2>1337 Wing Mesh Node</h2><p><b>Network:</b> LoRa Meshtastic</p><p><b>Range:</b> 5–15km</p><p><b>Battery:</b> 3000mAh</p>`,
+  revenant: `<h2>1337 Wing Revenant</h2><p><b>CPU:</b> Ryzen Embedded</p><p><b>RAM:</b> 16GB</p><p><b>Storage:</b> 1TB NVMe</p><p><b>OS:</b> Linux compatible</p>`,
+  cyberdeck: `<h2>1337 Wing Cyberdeck</h2><p><b>Platform:</b> Modular SBC</p><p><b>Connectivity:</b> WiFi + Ethernet</p><p><b>Purpose:</b> Portable pentesting lab</p>`,
+  zippo1: `<h2>1337 Wing Tactical Zippo</h2><p><b>Material:</b> Brushed steel</p><p><b>Finish:</b> Laser-engraved</p><p><b>Edition:</b> Limited collectible</p>`,
+  zippo2: `<h2>Red Team Zippo</h2><p><b>Material:</b> Matte black steel</p><p><b>Engraving:</b> Red Team Division</p><p><b>Edition:</b> Collector's item</p>`,
+  hoodie1: `<h2>1337 Wing Hoodie</h2><p><b>Material:</b> 100% Cotton</p><p><b>Print:</b> Glow-in-the-dark</p><p><b>Edition:</b> Numbered limited run</p>`,
+  tshirt1: `<h2>1337 Wing T-Shirt</h2><p><b>Material:</b> Soft cotton</p><p><b>Design:</b> Collector's slogans</p>`,
+  usb_ducky: `<h2>USB Rubber Ducky</h2><p><b>Type:</b> HID injection device</p><p><b>Branding:</b> 1337 Wing edition</p>`,
+  keycaps: `<h2>Custom Keycaps</h2><p><b>Compatibility:</b> MX switches</p><p><b>Design:</b> Glow-in-the-dark hacker slogans</p>`
+};
 
 function openSpecs(product) {
   document.getElementById("specContent").innerHTML = specsData[product] || "<p>No specs available.</p>";
