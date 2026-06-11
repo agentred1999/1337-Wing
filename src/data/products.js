@@ -68,7 +68,7 @@ export const products = [
     short: 'Limited-edition USB Ducky with 1337 Wing branding. For pentesting enthusiasts.',
     description: 'The classic HID injection device, now with 1337 Wing branding. Runs DuckyScript 3.0. Ships pre-loaded with a safe demo payload. Works on Windows, Linux, and macOS.',
     specs: [
-      { label: 'Interface', value: 'USB-A' },
+      { label: 'Interface', value: 'USB-A and USB-C' },
       { label: 'Storage', value: '128MB' },
       { label: 'Script', value: 'DuckyScript 3.0' },
       { label: 'OS Support', value: 'Windows / Linux / macOS' },
@@ -97,7 +97,7 @@ export const products = [
     category: 'hardware',
     image: '/1337-Wing/mesh.jpg',
     short: 'Meshtastic LoRa node for secure off-grid communication.',
-    description: 'Encrypted mesh networking with no internet required. Range up to 15km in open terrain. Runs Meshtastic firmware. Perfect for field ops, disaster prep, or off-grid comms.',
+    description: 'Encrypted mesh networking with no internet required. Range up to 5 miles in open terrain. Runs Meshtastic firmware. Perfect for field ops, disaster prep, or off-grid comms.',
     specs: [
       { label: 'Protocol', value: 'Meshtastic / LoRa' },
       { label: 'Range', value: 'Up to 15km open terrain' },
@@ -115,10 +115,10 @@ export const products = [
     short: 'Linux-first red team laptop inspired by classic ThinkPads.',
     description: 'Fully repairable and upgradeable. Ships with Kali or Arch Linux pre-installed. Classic ThinkPad-inspired chassis — built for real security work, not aesthetics theater.',
     specs: [
-      { label: 'CPU', value: 'AMD Ryzen 7' },
+      { label: 'CPU', value: 'Intel core I7 155H (Meteor lake)' },
       { label: 'RAM', value: '16GB DDR5' },
       { label: 'Storage', value: '512GB NVMe SSD' },
-      { label: 'OS', value: 'Kali Linux / Arch Linux' },
+      { label: 'OS', value: 'Any linux distro made to custom order' },
       { label: 'Display', value: '14" IPS 1080p' },
       { label: 'Repairability', value: 'Fully modular' },
     ],
