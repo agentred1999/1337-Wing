@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react'
 
-function esc(s) {
-  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
-}
-
 export default function HackerNewsFeed() {
   const [query, setQuery] = useState('security hacking linux pentest')
   const [inputVal, setInputVal] = useState('')
@@ -66,13 +62,15 @@ export default function HackerNewsFeed() {
   }
 
   return (
-    <section id="hn-section">
-      <h2>&gt; INTEL FEED — HACKER NEWS</h2>
+    <section id="hn-section" aria-labelledby="hn-heading">
+      <h2 id="hn-heading">&gt; INTEL FEED — HACKER NEWS</h2>
       <div className="hn-inner">
         <p className="hn-sub">&gt; live search via hn.algolia.com api — type anything and hit search</p>
 
         <div className="hn-search-bar">
+          <label htmlFor="hn-search-input" className="sr-only">Search Hacker News</label>
           <input
+            id="hn-search-input"
             type="text"
             value={inputVal}
             onChange={e => setInputVal(e.target.value)}
@@ -84,23 +82,23 @@ export default function HackerNewsFeed() {
         </div>
 
         <div className="hn-filters">
-          <label>SORT:</label>
-          <select value={sort} onChange={e => setSort(e.target.value)}>
+          <label htmlFor="hn-sort">SORT:</label>
+          <select id="hn-sort" value={sort} onChange={e => setSort(e.target.value)}>
             <option value="rel">Relevance</option>
             <option value="pts">Points: High → Low</option>
             <option value="new">Newest First</option>
             <option value="cmt">Most Comments</option>
           </select>
-          <label>TYPE:</label>
-          <select value={type} onChange={e => setType(e.target.value)}>
+          <label htmlFor="hn-type">TYPE:</label>
+          <select id="hn-type" value={type} onChange={e => setType(e.target.value)}>
             <option value="all">All</option>
             <option value="story">Stories</option>
             <option value="ask_hn">Ask HN</option>
             <option value="show_hn">Show HN</option>
             <option value="job">Jobs</option>
           </select>
-          <label>MIN PTS:</label>
-          <select value={minPts} onChange={e => setMinPts(parseInt(e.target.value))}>
+          <label htmlFor="hn-minpts">MIN PTS:</label>
+          <select id="hn-minpts" value={minPts} onChange={e => setMinPts(parseInt(e.target.value))}>
             <option value="0">Any</option>
             <option value="10">10+</option>
             <option value="50">50+</option>
@@ -109,9 +107,15 @@ export default function HackerNewsFeed() {
           </select>
         </div>
 
+        <div aria-live="polite" className="sr-only">
+          {loading && 'Loading results...'}
+          {!loading && !error && `${filteredHits.length} result${filteredHits.length !== 1 ? 's' : ''} found`}
+          {error && 'An error occurred while searching.'}
+        </div>
+
         {loading && (
           <div className="hn-loading">
-            <div className="spinner"></div>
+            <div className="spinner" aria-hidden="true"></div>
             <br />&gt; fetching from hacker news api...
           </div>
         )}
@@ -139,7 +143,7 @@ export default function HackerNewsFeed() {
                 <span className="hn-tag">{label}</span>
                 <h3>
                   {h.url
-                    ? <a href={h.url} target="_blank" rel="noreferrer">{title}</a>
+                    ? <a href={h.url} target="_blank" rel="noreferrer">{title} <span className="sr-only">(opens in new tab)</span></a>
                     : title
                   }
                 </h3>
@@ -149,7 +153,7 @@ export default function HackerNewsFeed() {
                   <span>{h.created_at ? new Date(h.created_at).toLocaleDateString() : ''}</span>
                 </div>
                 <div className="hn-by">by {h.author || 'unknown'}</div>
-                <a className="hn-link" href={hnUrl} target="_blank" rel="noreferrer">&gt; view on HN →</a>
+                <a className="hn-link" href={hnUrl} target="_blank" rel="noreferrer">&gt; view on HN → <span className="sr-only">(opens in new tab)</span></a>
               </div>
             )
           })}

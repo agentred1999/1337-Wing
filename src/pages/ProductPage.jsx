@@ -11,22 +11,27 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <main className="container" style={{ paddingTop: 60 }}>
+      <div className="container" style={{ paddingTop: 60 }}>
         <p style={{ color: '#00ff9c', fontFamily: 'monospace' }}>&gt; product not found.</p>
         <Link to="/" className="btn" style={{ marginTop: 20, display: 'inline-block' }}>
           ← BACK TO CATALOG
         </Link>
-      </main>
+      </div>
     )
   }
 
+  const webpSrc = product.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')
+
   return (
-    <main className="container product-detail-page">
+    <div className="container product-detail-page">
       <Link to="/" className="back-link">← BACK TO CATALOG</Link>
 
       <div className="detail-layout">
         <div className="detail-img-wrap">
-          <img src={product.image} alt={product.name} className="detail-img" />
+          <picture>
+            <source srcSet={webpSrc} type="image/webp" />
+            <img src={product.image} alt={product.name} className="detail-img" />
+          </picture>
         </div>
 
         <div className="detail-info">
@@ -35,12 +40,13 @@ export default function ProductPage() {
           <p className="detail-description">{product.description}</p>
 
           <div className="specs-block">
-            <h3>&gt; SPECS</h3>
+            <h2>&gt; SPECS</h2>
             <table className="specs-table">
+              <caption className="sr-only">Technical specifications for {product.name}</caption>
               <tbody>
                 {product.specs.map((spec, i) => (
                   <tr key={i}>
-                    <td className="spec-label">{spec.label}</td>
+                    <th className="spec-label" scope="row">{spec.label}</th>
                     <td className="spec-value">{spec.value}</td>
                   </tr>
                 ))}
@@ -56,6 +62,6 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

@@ -22,10 +22,13 @@ export default function HomePage() {
   const hardware = filteredProducts.filter(p => p.category === 'hardware')
 
   return (
-    <main>
+    <>
       {/* HERO */}
       <header className="hero">
-        <img src="/1337-Wing/1337.jpg" className="big-logo" alt="1337 Wing Eagle Logo" />
+        <picture>
+          <source srcSet="/1337-Wing/1337.webp" type="image/webp" />
+          <img src="/1337-Wing/1337.jpg" className="big-logo" alt="1337 Wing Eagle Logo" fetchpriority="high" decoding="async" />
+        </picture>
         <h1>1337 WING</h1>
         <p>Professional hardware for red teaming and pentesting — built by hackers for hackers.</p>
         <a href="#shop" className="btn">BROWSE THE CATALOG →</a>
@@ -39,16 +42,16 @@ export default function HomePage() {
         {/* FILTER + SORT BAR — required filter feature */}
         <div className="filter-sort-bar">
           <div className="filter-group">
-            <label>&gt; FILTER:</label>
-            <select value={filterCategory} onChange={e => setFilterCategory(e.target.value)}>
+            <label htmlFor="filter-category">&gt; FILTER:</label>
+            <select id="filter-category" value={filterCategory} onChange={e => setFilterCategory(e.target.value)}>
               <option value="all">All Products</option>
               <option value="merch">Merch Only</option>
               <option value="hardware">Hardware Only</option>
             </select>
           </div>
           <div className="filter-group">
-            <label>&gt; SORT BY:</label>
-            <select value={sortOrder} onChange={e => setSortOrder(e.target.value)}>
+            <label htmlFor="sort-order">&gt; SORT BY:</label>
+            <select id="sort-order" value={sortOrder} onChange={e => setSortOrder(e.target.value)}>
               <option value="default">— Select —</option>
               <option value="az">Name: A → Z</option>
               <option value="za">Name: Z → A</option>
@@ -63,7 +66,7 @@ export default function HomePage() {
           <section id="merch" style={{ marginBottom: 50 }}>
             <h2>1337 Wing Merch</h2>
             <div className="products">
-              {merch.map(p => <ProductCard key={p.id} product={p} />)}
+              {merch.map((p, i) => <ProductCard key={p.id} product={p} priority={i < 3} />)}
             </div>
           </section>
         )}
@@ -73,13 +76,13 @@ export default function HomePage() {
           <section>
             <h2>Signature Gear</h2>
             <div className="products">
-              {hardware.map(p => <ProductCard key={p.id} product={p} />)}
+              {hardware.map((p, i) => <ProductCard key={p.id} product={p} priority={i < 3} />)}
             </div>
           </section>
         )}
 
         {filteredProducts.length === 0 && (
-          <p style={{ color: '#555', fontFamily: 'monospace', padding: '40px 0' }}>
+          <p style={{ color: '#9a9a9a', fontFamily: 'monospace', padding: '40px 0' }}>
             &gt; no products match that filter.
           </p>
         )}
@@ -113,9 +116,9 @@ export default function HomePage() {
         <p>&gt; Submit an idea.</p>
         <a href="https://github.com/agentred1999/1337-Wing/pulls" target="_blank" rel="noreferrer"
           style={{ color: '#00ff9c', textDecoration: 'underline', display: 'inline-block', marginTop: 10 }}>
-          OPEN ISSUE ON GITHUB →
+          OPEN ISSUE ON GITHUB → <span className="sr-only">(opens in new tab)</span>
         </a>
       </section>
-    </main>
+    </>
   )
 }

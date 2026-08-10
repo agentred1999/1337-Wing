@@ -18,15 +18,30 @@ export default function BioPage() {
   const [done, setDone] = useState(false)
   const indexRef = useRef(0)
   const containerRef = useRef(null)
+  const timerRef = useRef(null)
+
+  const skipToEnd = () => {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    indexRef.current = story.length
+    setDisplayed(story)
+    setDone(true)
+  }
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) {
+      setDisplayed(story)
+      setDone(true)
+      return
+    }
+
     function type() {
       if (indexRef.current < story.length) {
         const char = story[indexRef.current]
         setDisplayed(prev => prev + char)
         indexRef.current++
         const delay = char === '\n' ? 50 : 15
-        setTimeout(type, delay)
+        timerRef.current = setTimeout(type, delay)
         if (containerRef.current) {
           containerRef.current.scrollTop = containerRef.current.scrollHeight
         }
@@ -35,6 +50,7 @@ export default function BioPage() {
       }
     }
     type()
+    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
   }, [])
 
   return (
@@ -62,6 +78,9 @@ export default function BioPage() {
           background: #00FF9C !important;
           color: #001429 !important;
         }
+        @media (prefers-reduced-motion: reduce) {
+          * { animation: none !important; }
+        }
       `}</style>
 
       <div style={{
@@ -76,15 +95,40 @@ export default function BioPage() {
         minHeight: 100,
         animation: 'glow 2s infinite alternate',
       }}>
-        <div ref={containerRef} style={{
-          whiteSpace: 'pre-wrap',
-          lineHeight: 1.6,
-          fontSize: '1.2rem',
-          overflowY: 'auto',
-        }}>
+        <h1 className="sr-only">Our Story — Richard Dean, Founder of 1337 Wing</h1>
+
+        {!done && (
+          <button
+            onClick={skipToEnd}
+            style={{
+              background: 'transparent',
+              color: '#00FF9C',
+              border: '1px solid #00FF9C',
+              borderRadius: 4,
+              padding: '4px 12px',
+              fontFamily: 'monospace',
+              fontSize: '0.8rem',
+              cursor: 'pointer',
+              marginBottom: 14,
+            }}
+          >
+            Skip animation
+          </button>
+        )}
+
+        <div
+          ref={containerRef}
+          aria-live={done ? 'off' : 'polite'}
+          style={{
+            whiteSpace: 'pre-wrap',
+            lineHeight: 1.6,
+            fontSize: '1.2rem',
+            overflowY: 'auto',
+          }}
+        >
           {displayed}
           {!done && (
-            <span style={{
+            <span aria-hidden="true" style={{
               display: 'inline-block',
               background: '#00FF9C',
               width: 8,

@@ -1,10 +1,18 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useRef } from 'react'
 
 const CartContext = createContext(null)
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
+  const [toast, setToast] = useState(null)
+  const toastTimer = useRef(null)
+
+  const showToast = (message) => {
+    setToast(message)
+    if (toastTimer.current) clearTimeout(toastTimer.current)
+    toastTimer.current = setTimeout(() => setToast(null), 2200)
+  }
 
   const addToCart = (product) => {
     setCart(prev => {
@@ -12,6 +20,23 @@ export function CartProvider({ children }) {
       if (existing) return prev.map(x => x.id === product.id ? { ...x, quantity: x.quantity + 1 } : x)
       return [...prev, { ...product, quantity: 1 }]
     })
+    showToast(`Added "${product.name}" to cart`)
+  }
+
+  const removeFromCart = (productId) => {
+    setCart(prev => prev.filter(x => x.id !== productId))
+  }
+
+  const decreaseQuantity = (productId) => {
+    setCart(prev =>
+      prev
+        .map(x => x.id === productId ? { ...x, quantity: x.quantity - 1 } : x)
+        .filter(x => x.quantity > 0)
+    )
+  }
+
+  const increaseQuantity = (productId) => {
+    setCart(prev => prev.map(x => x.id === productId ? { ...x, quantity: x.quantity + 1 } : x))
   }
 
   const cartCount = cart.reduce((s, i) => s + i.quantity, 0)
@@ -28,7 +53,10 @@ export function CartProvider({ children }) {
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartCount, cartTotal, cartOpen, setCartOpen, checkout }}>
+    <CartContext.Provider value={{
+      cart, addToCart, removeFromCart, decreaseQuantity, increaseQuantity,
+      cartCount, cartTotal, cartOpen, setCartOpen, checkout, toast
+    }}>
       {children}
     </CartContext.Provider>
   )
