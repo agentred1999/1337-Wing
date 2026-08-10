@@ -4,7 +4,7 @@ export const products = [
     name: '1337 Wing Tactical Zippo',
     price: 50,
     category: 'merch',
-    image: '/zippo1.jpg',
+    image: '/1337-Wing/zippo1.jpg',
     short: 'Brushed steel Zippo with laser-engraved hacker slogans. Limited edition collectible. Each comes with a bounty hunt puzzle tied to the website.',
     description: 'A brushed steel collector piece with laser-precision engraving of 1337 Wing slogans. Only 100 units produced, each numbered. Comes with a sealed bounty hunt puzzle card tied to a hidden challenge on the website.',
     specs: [
@@ -19,7 +19,7 @@ export const products = [
     name: 'Red Team Zippo',
     price: 60,
     category: 'merch',
-    image: '/zippo2.jpg',
+    image: '/1337-Wing/zippo2.jpg',
     short: 'Matte black Zippo engraved with "Red Team Division". Perfect for hackers and collectors.',
     description: 'Matte black finish with deep-engraved "Red Team Division" logo. Ships in a custom 1337 Wing box. A statement piece for any red teamer\'s desk.',
     specs: [
@@ -34,7 +34,7 @@ export const products = [
     name: '1337 Wing Hoodie',
     price: 70,
     category: 'merch',
-    image: '/hoodie1.jpg',
+    image: '/1337-Wing/hoodie1.jpg',
     short: 'Black hoodie with glow-in-the-dark hacker slogans. Limited run and numbered.',
     description: 'Premium heavyweight cotton hoodie. Glow-in-the-dark screen print on the back with rotating hacker slogans. Each unit is numbered — once they\'re gone, they\'re gone.',
     specs: [
@@ -49,7 +49,7 @@ export const products = [
     name: '1337 Wing T-Shirt',
     price: 35,
     category: 'merch',
-    image: '/tshirt1.jpg',
+    image: '/1337-Wing/tshirt1.jpg',
     short: 'Soft cotton t-shirt with slogans like "sudo make me a sandwich". Collector\'s edition.',
     description: 'Combed cotton tee with multiple slogan variants. Collector\'s edition with rotating prints each drop. Lightweight and breathable for all-day wear.',
     specs: [
@@ -64,7 +64,7 @@ export const products = [
     name: 'USB Rubber Ducky',
     price: 80,
     category: 'hardware',
-    image: '/usbducky.jpg',
+    image: '/1337-Wing/usbducky.jpg',
     short: 'Limited-edition USB Ducky with 1337 Wing branding. For pentesting enthusiasts.',
     description: 'The classic HID injection device, now with 1337 Wing branding. Runs DuckyScript 3.0. Ships pre-loaded with a safe demo payload. Works on Windows, Linux, and macOS.',
     specs: [
@@ -80,7 +80,7 @@ export const products = [
     name: 'Custom Keycaps',
     price: 45,
     category: 'merch',
-    image: '/keycaps.jpg',
+    image: '/1337-Wing/keycaps.jpg',
     short: 'Mechanical keyboard keycaps with hacker slogans. Glow-in-the-dark terminal vibes.',
     description: 'PBT double-shot keycaps with glow-in-the-dark legends. Hacker slogans, terminal symbols, and 1337 Wing branding. MX switch compatible, ANSI layout.',
     specs: [
@@ -95,7 +95,7 @@ export const products = [
     name: '1337 Wing Mesh Node',
     price: 200,
     category: 'hardware',
-    image: '/mesh.jpg',
+    image: '/1337-Wing/mesh.jpg',
     short: 'Meshtastic LoRa node for secure off-grid communication.',
     description: 'Encrypted mesh networking with no internet required. Range up to 5 miles in open terrain. Runs Meshtastic firmware. Perfect for field ops, disaster prep, or off-grid comms.',
     specs: [
@@ -111,7 +111,7 @@ export const products = [
     name: '1337 Wing Revenant',
     price: 1000,
     category: 'hardware',
-    image: '/computer.jpg',
+    image: '/1337-Wing/computer.jpg',
     short: 'Linux-first red team laptop inspired by classic ThinkPads.',
     description: 'Fully repairable and upgradeable. Ships with Kali or Arch Linux pre-installed. Classic ThinkPad-inspired chassis — built for real security work, not aesthetics theater.',
     specs: [
@@ -128,7 +128,7 @@ export const products = [
     name: '1337 Wing Cyberdeck',
     price: 300,
     category: 'hardware',
-    image: '/cyber.jpg',
+    image: '/1337-Wing/cyber.jpg',
     short: 'Portable cybersecurity lab designed for mobile pentesting.',
     description: 'Modular cybersecurity platform built for mobility. Runs full Kali Linux ARM. Fits in a tactical backpack. Built around a Raspberry Pi CM4 with a 7" touchscreen.',
     specs: [

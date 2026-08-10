@@ -26,8 +26,8 @@ export default function HomePage() {
       {/* HERO */}
       <header className="hero">
         <picture>
-          <source srcSet="/1337.webp" type="image/webp" />
-          <img src="/1337.jpg" className="big-logo" alt="1337 Wing Eagle Logo" fetchpriority="high" decoding="async" />
+          <source srcSet="/1337-Wing/1337.webp" type="image/webp" />
+          <img src="/1337-Wing/1337.jpg" className="big-logo" alt="1337 Wing Eagle Logo" fetchpriority="high" decoding="async" />
         </picture>
         <h1>1337 WING</h1>
         <p>Professional hardware for red teaming and pentesting — built by hackers for hackers.</p>

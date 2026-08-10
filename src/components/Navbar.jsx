@@ -19,7 +19,7 @@ export default function Navbar() {
       <nav className="navbar">
         <div className="nav-container">
           <Link to="/" className="logo">
-            <picture><source srcSet="/1337.webp" type="image/webp" /><img src="/1337.jpg" className="nav-logo" alt="1337 Wing Logo" fetchpriority="high" decoding="async" /></picture>
+            <picture><source srcSet="/1337-Wing/1337.webp" type="image/webp" /><img src="/1337-Wing/1337.jpg" className="nav-logo" alt="1337 Wing Logo" fetchpriority="high" decoding="async" /></picture>
             1337 WING
           </Link>
           <div className="nav-links">
