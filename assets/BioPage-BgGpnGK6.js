@@ -1,4 +1,4 @@
-import{r,j as e,L as h}from"./index-vRNfvYmZ.js";const i=`> My name is Richard Dean. My journey into technology began at age 12 when my Father gave me a Raspberry Pi. That small, unassuming board sparked a persistent drive to explore hardware, Linux, and secure systems. Over the years, I've expanded my skills through robotics, modular computing projects, and Linux-first devices.
+import{r,j as e,L as h}from"./index-CFEbm4J8.js";const i=`> My name is Richard Dean. My journey into technology began at age 12 when my Father gave me a Raspberry Pi. That small, unassuming board sparked a persistent drive to explore hardware, Linux, and secure systems. Over the years, I've expanded my skills through robotics, modular computing projects, and Linux-first devices.
 
 > In 2025 I founded 1337 Wing. Our mission is to develop modular, Linux-first hardware with maximum durability, tactical usability, and adaptability for security professionals and open-source communities. Each product is built with modularity, repairability, and precision in mind.
 
