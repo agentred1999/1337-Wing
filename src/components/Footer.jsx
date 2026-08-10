@@ -9,7 +9,7 @@ export default function Footer() {
         <a href="/#mission">Mission</a> |{' '}
         <a href="/#shop">Shop</a> |{' '}
         <Link to="/privacy">Privacy</Link> |{' '}
-        <a href="https://github.com/agentred1999/1337-Wing/pulls" target="_blank" rel="noreferrer">
+        <a href="https://github.com/agentred1999/pulls" target="_blank" rel="noreferrer">
           GitHub <span className="sr-only">(opens in new tab)</span>
         </a>
       </p>

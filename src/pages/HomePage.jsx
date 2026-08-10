@@ -26,8 +26,8 @@ export default function HomePage() {
       {/* HERO */}
       <header className="hero">
         <picture>
-          <source srcSet="/1337-Wing/1337.webp" type="image/webp" />
-          <img src="/1337-Wing/1337.jpg" className="big-logo" alt="1337 Wing Eagle Logo" fetchpriority="high" decoding="async" />
+          <source srcSet="/1337.webp" type="image/webp" />
+          <img src="/1337.jpg" className="big-logo" alt="1337 Wing Eagle Logo" fetchpriority="high" decoding="async" />
         </picture>
         <h1>1337 WING</h1>
         <p>Professional hardware for red teaming and pentesting — built by hackers for hackers.</p>
@@ -114,7 +114,7 @@ export default function HomePage() {
         <p style={{ marginTop: 10 }}>&gt; Found a bug?</p>
         <p>&gt; Want to suggest hardware?</p>
         <p>&gt; Submit an idea.</p>
-        <a href="https://github.com/agentred1999/1337-Wing/pulls" target="_blank" rel="noreferrer"
+        <a href="https://github.com/agentred1999/pulls" target="_blank" rel="noreferrer"
           style={{ color: '#00ff9c', textDecoration: 'underline', display: 'inline-block', marginTop: 10 }}>
           OPEN ISSUE ON GITHUB → <span className="sr-only">(opens in new tab)</span>
         </a>

@@ -62,7 +62,7 @@ export default function PrivacyPage() {
             <li>Request account deletion, subject to legal retention requirements</li>
             <li>Delete community submissions you've authored</li>
           </ul>
-          <p>Reach out via <a href="https://github.com/agentred1999/1337-Wing/issues" target="_blank" rel="noreferrer">GitHub <span className="sr-only">(opens in new tab)</span></a> for any of the above — dedicated contact info coming soon.</p>
+          <p>Reach out via <a href="https://github.com/agentred1999/issues" target="_blank" rel="noreferrer">GitHub <span className="sr-only">(opens in new tab)</span></a> for any of the above — dedicated contact info coming soon.</p>
         </section>
 
         <section>
@@ -82,14 +82,14 @@ export default function PrivacyPage() {
 
         <section>
           <h2>10. Contact</h2>
-          <p>Dedicated contact info coming soon. In the meantime, open a <a href="https://github.com/agentred1999/1337-Wing/issues" target="_blank" rel="noreferrer">GitHub issue <span className="sr-only">(opens in new tab)</span></a> for anything non-sensitive.</p>
+          <p>Dedicated contact info coming soon. In the meantime, open a <a href="https://github.com/agentred1999/issues" target="_blank" rel="noreferrer">GitHub issue <span className="sr-only">(opens in new tab)</span></a> for anything non-sensitive.</p>
         </section>
 
         <section>
           <h2>11. Reporting Security Issues</h2>
           <p>Found a vulnerability in our site, backend, or how we handle your data? We'd genuinely rather hear about it from you first, before anyone else finds it.</p>
-          <p>Report it privately through <a href="https://github.com/agentred1999/1337-Wing/security/advisories/new" target="_blank" rel="noreferrer">GitHub Security Advisories <span className="sr-only">(opens in new tab)</span></a> — this keeps the report visible only to us until it's fixed, instead of a public issue that tips off anyone watching the repo. We don't publish security reports as public GitHub issues or pull requests, and we ask that you don't either, until we've had a chance to patch it.</p>
-          <p>General bugs and feature ideas (non-security) are welcome as regular <a href="https://github.com/agentred1999/1337-Wing/issues" target="_blank" rel="noreferrer">GitHub issues <span className="sr-only">(opens in new tab)</span></a>.</p>
+          <p>Report it privately through <a href="https://github.com/agentred1999/security/advisories/new" target="_blank" rel="noreferrer">GitHub Security Advisories <span className="sr-only">(opens in new tab)</span></a> — this keeps the report visible only to us until it's fixed, instead of a public issue that tips off anyone watching the repo. We don't publish security reports as public GitHub issues or pull requests, and we ask that you don't either, until we've had a chance to patch it.</p>
+          <p>General bugs and feature ideas (non-security) are welcome as regular <a href="https://github.com/agentred1999/issues" target="_blank" rel="noreferrer">GitHub issues <span className="sr-only">(opens in new tab)</span></a>.</p>
         </section>
       </div>
     </div>
