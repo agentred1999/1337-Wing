@@ -41,6 +41,27 @@ Backend configuration (DB host, port, name, user, password) is supplied via a lo
 ## Cart
 Cart state lives in src/context/CartContext.jsx (React Context + useState, no external store). Supports addToCart(product), removeFromCart(productId), decreaseQuantity(productId) which auto-removes an item at 0, and increaseQuantity(productId).
 
+## Testing
+Unit tests cover the cart logic in `src/context/CartContext.jsx` — the part of the app most likely to have a real bug (quantity math, auto-removal at zero, derived totals).
+
+Stack: **Vitest** + **React Testing Library** (`renderHook`/`act`), run against a `jsdom` environment.
+
+Coverage:
+- Empty-cart initial state
+- Adding a product (and incrementing quantity instead of duplicating on repeat add)
+- `increaseQuantity` / `decreaseQuantity`
+- Auto-removal of an item when quantity is decreased to 0
+- Explicit removal via `removeFromCart`
+- Derived `cartCount` and `cartTotal` calculations
+
+Run the suite:
+```
+npm test          # single run
+npm run test:watch  # watch mode
+```
+
+9/9 tests passing as of 12 Aug 2026.
+
 ## Security
 
 Practices in place for this deployment:
@@ -76,7 +97,6 @@ npx lighthouse@11 https://<your-host>/ \
 
 ### Known gaps / TODO
 - No CI/CD; deploys are manual
-- No automated tests
 - No offsite backup copy yet, beyond local rotation
 - No uptime or intrusion monitoring configured yet
 - Secrets are not yet managed via a dedicated secrets manager — acceptable for current scale, worth revisiting if this grows
