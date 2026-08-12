@@ -53,6 +53,27 @@ Practices in place for this deployment:
 - **Backups**: Automated, compressed, rotated database backups are taken on a nightly schedule, stored locally, with a planned offsite copy.
 - **Network exposure**: Public access is scoped through a proxy layer rather than direct port-forwarding, limiting the exposed attack surface to what the proxy explicitly serves.
 
+## Accessibility
+Practices in place:
+- **Skip link**: a visually-hidden "Skip to content" link, visible on focus, lets keyboard and screen reader users bypass repeated navigation.
+- **Live regions**: cart count changes and the founder-story typewriter animation use `aria-live` regions so screen readers announce updates without a full page reload.
+- **Focus management**: the cart modal traps focus (Tab/Shift+Tab cycle within the dialog), closes on Escape, and restores focus to the triggering element on close.
+- **Labeling**: icon-only buttons carry explicit `aria-label`s; all form inputs are associated with a `<label>`.
+- **Reduced motion**: the boot sequence, logo glow, loading spinners, and skeleton loaders all respect `prefers-reduced-motion` and disable or simplify their animation when set.
+- **Route-level code splitting** keeps initial payload small without blocking screen reader announcement of route changes (`route-loading` status region during lazy-loaded page transitions).
+
+### Automated audit
+Lighthouse Accessibility: **100/100** (Chrome headless, audited 12 Aug 2026).
+
+Reproduce locally:
+```
+npx lighthouse@11 https://<your-host>/ \
+  --only-categories=accessibility \
+  --output=json --output=html \
+  --output-path="$HOME/a11y-report" \
+  --chrome-flags="--headless --no-sandbox"
+```
+
 ### Known gaps / TODO
 - No CI/CD; deploys are manual
 - No automated tests
