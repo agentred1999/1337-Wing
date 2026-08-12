@@ -9,6 +9,10 @@ export default function PrivacyPage() {
         <h1>Privacy Policy</h1>
         <p className="privacy-updated">Last updated: 8-8-26 </p>
 
+        <section className="privacy-notice">
+          <p><strong>Current status:</strong> 1337 Wing is under active development. This policy describes what we collect once live features go active — as of this writing, we have not yet collected real customer account, order, or community submission data through this site. This page will be updated the moment that changes.</p>
+        </section>
+
         <section>
           <h2>Our Approach</h2>
           <p>1337 Wing is built by hackers, for hackers. We collect the minimum data required to run the site, sell gear, and support the community — nothing more. We don't sell your data, we don't run third-party ad trackers, and we don't pad this policy with vague language designed to hide what we actually do. If something changes, we'll say so plainly, right here.</p>

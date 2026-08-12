@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { useState, useRef, useEffect } from 'react'
+import { assetPath } from '../utils/assetPath'
 
 export default function ProductCard({ product, priority = false }) {
   const { addToCart } = useCart()
   const [imgLoaded, setImgLoaded] = useState(false)
   const imgRef = useRef(null)
-  const webpSrc = product.image.replace(/\.(jpg|jpeg|png)$/i, '.webp')
+  const imgSrc = assetPath(product.image)
+  const webpSrc = imgSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp')
 
   useEffect(() => {
     if (imgRef.current && imgRef.current.complete) {
@@ -22,7 +24,7 @@ export default function ProductCard({ product, priority = false }) {
           <source srcSet={webpSrc} type="image/webp" />
           <img
             ref={imgRef}
-            src={product.image}
+            src={imgSrc}
             alt={product.name}
             loading={priority ? 'eager' : 'lazy'}
             fetchpriority={priority ? 'high' : 'auto'}

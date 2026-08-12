@@ -1,10 +1,14 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/AuthContext'
 import { useEffect, useRef } from 'react'
+import { assetPath } from '../utils/assetPath'
 
 export default function Navbar() {
   const { cartCount, setCartOpen } = useCart()
+  const { user, logout, authLoading } = useAuth()
   const location = useLocation()
+  const navigate = useNavigate()
   const liveRef = useRef(null)
 
   useEffect(() => {
@@ -13,13 +17,18 @@ export default function Navbar() {
     }
   }, [cartCount])
 
+  const handleLogout = async () => {
+    await logout()
+    navigate('/')
+  }
+
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <nav className="navbar">
         <div className="nav-container">
           <Link to="/" className="logo">
-            <picture><source srcSet="/1337-Wing/1337.webp" type="image/webp" /><img src="/1337-Wing/1337.jpg" className="nav-logo" alt="1337 Wing Logo" fetchpriority="high" decoding="async" /></picture>
+            <picture><source srcSet={assetPath("1337.webp")} type="image/webp" /><img src={assetPath("1337.jpg")} className="nav-logo" alt="1337 Wing Logo" fetchpriority="high" decoding="async" /></picture>
             1337 WING
           </Link>
           <div className="nav-links">
@@ -29,6 +38,17 @@ export default function Navbar() {
               OUR STORY
             </Link>
             <a href="/#mission">MISSION</a>
+            <Link to="/thinkpad-701c">701C PROJECT</Link>
+            {!authLoading && (
+              user ? (
+                <>
+                  <span style={{ color: '#00d4ff' }}>{user.username}</span>
+                  <button className="cta" onClick={handleLogout}>LOGOUT</button>
+                </>
+              ) : (
+                <Link to="/login" className="cta">LOGIN</Link>
+              )
+            )}
             <button className="cta" onClick={() => setCartOpen(true)}>
               CART ({cartCount})
             </button>

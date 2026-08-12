@@ -104,7 +104,7 @@ export default function CartModal() {
         <button onClick={checkout} className="checkout-btn">Checkout</button>
         <div style={{ marginTop: 20, color: '#00ff9c', fontFamily: 'monospace' }}>
           <h3>Shipping Info</h3>
-          {['Name', 'Street', 'City', 'ZIP', 'Country'].map(field => {
+          {['Name', 'Street', 'City', 'State', 'ZIP'].map(field => {
             const id = `ship-${field.toLowerCase()}`
             return (
               <label key={field} htmlFor={id} style={{ display: 'block', marginTop: 14 }}>
@@ -113,6 +113,22 @@ export default function CartModal() {
               </label>
             )
           })}
+          <label htmlFor="ship-country" style={{ display: 'block', marginTop: 14 }}>
+            Country:<br />
+            <select id="ship-country" className="ship-input">
+              <option value="">Select a country</option>
+              {[
+                'United States', 'Canada', 'Mexico', 'United Kingdom', 'Ireland',
+                'Australia', 'New Zealand', 'Germany', 'France', 'Spain', 'Italy',
+                'Netherlands', 'Belgium', 'Switzerland', 'Austria', 'Sweden',
+                'Norway', 'Denmark', 'Finland', 'Poland', 'Portugal', 'Greece',
+                'Japan', 'South Korea', 'China', 'India', 'Singapore',
+                'Brazil', 'Argentina', 'Chile', 'South Africa'
+              ].map(c => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+          </label>
         </div>
       </div>
     </div>

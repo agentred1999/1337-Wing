@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/1337-Wing/',
+  base: '/',
   preview: {
     host: true,
-    port: 5173,
-    allowedHosts: ['YOUR-DOMAIN-HERE.ts.net'],
+    port: 4173,
+    allowedHosts: ['1337wing.taila4d3fb.ts.net'],
   },
 })

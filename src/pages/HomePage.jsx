@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { products } from '../data/products'
 import ProductCard from '../components/ProductCard'
 import HackerNewsFeed from '../components/HackerNewsFeed'
+import FieldNotes from '../components/FieldNotes'
+import { assetPath } from '../utils/assetPath'
 
 export default function HomePage() {
   // --- REQUIRED FEATURE: Filter + Sort with useState ---
@@ -26,8 +28,8 @@ export default function HomePage() {
       {/* HERO */}
       <header className="hero">
         <picture>
-          <source srcSet="/1337-Wing/1337.webp" type="image/webp" />
-          <img src="/1337-Wing/1337.jpg" className="big-logo" alt="1337 Wing Eagle Logo" fetchpriority="high" decoding="async" />
+          <source srcSet={assetPath("1337.webp")} type="image/webp" />
+          <img src={assetPath("1337.jpg")} className="big-logo" alt="1337 Wing Eagle Logo" fetchpriority="high" decoding="async" />
         </picture>
         <h1>1337 WING</h1>
         <p>Professional hardware for red teaming and pentesting — built by hackers for hackers.</p>
@@ -36,6 +38,9 @@ export default function HomePage() {
 
       {/* HACKER NEWS INTEL FEED — useEffect lives inside this component */}
       <HackerNewsFeed />
+
+      {/* FIELD NOTES — real writeups, not aggregated content */}
+      <FieldNotes />
 
       {/* SHOP — Filter & Sort controls */}
       <div className="container" id="shop">
