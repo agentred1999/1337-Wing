@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+*.save
+*.log
+credentials
+*.pem
+*.key
+*.pid
+*.zip
+visual-audit/
+visual_audit.js
