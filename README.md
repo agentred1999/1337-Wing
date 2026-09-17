@@ -2,17 +2,19 @@
 
 Self-hosted full-stack e-commerce platform for the 1337 Wing brand — React/TypeScript frontend, Node/Express backend, PostgreSQL, deployed on self-managed Linux infrastructure.
 
-**[Live Demo](https://1337wing.taila4d3fb.ts.net/) · [GitHub](https://github.com/agentred1999/1337-Wing)**
+**[Live Demo](https://1337wing.taila4d3fb.ts.net/)**
 
 ## Preview
 
-![1337 Wing homepage](docs/screenshot.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eab91ffd-79d8-42ca-963d-e26997fba1a5" />
+
 
 ## Why I Built It
 
 1337 Wing started from the idea that technology shouldn't be disposable, shouldn't be a black box, and shouldn't require permission to understand or modify. I wanted a project that didn't stop at the UI — a real storefront with authentication, checkout, payments, and email, backed by infrastructure I provisioned, hardened, and run myself, not a managed platform.
 
-![Founder bio page](docs/screenshots/bio.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8bdef707-1984-4e31-b6f1-3c876c1712b4" />
+
 
 ## Features
 
@@ -23,7 +25,8 @@ Self-hosted full-stack e-commerce platform for the 1337 Wing brand — React/Typ
 - Contact form
 - Live Hacker News "Intel Feed" (HN Firebase API + Algolia search)
 
-![Intel Feed — live Hacker News search](docs/screenshots/intel-feed.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2de82286-eb63-40e5-ab02-efef8fd053a5" />
+
 - Night / day theming with a custom "glowlight" mode
 - One-time boot sequence on first visit
 - Dedicated feature page (`/thinkpad-701c`) with a custom animated hero
@@ -34,7 +37,8 @@ Self-hosted full-stack e-commerce platform for the 1337 Wing brand — React/Typ
 
 The storefront itself sells functional hardware, not apparel-first merch — in line with a hardware-first, Hak5-style brand direction:
 
-![1337 Wing shop page](docs/screenshots/shop.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4a217745-8e31-4320-a1b0-ecc56d8f76e9" />
+
 
 | Product | Price | Description |
 |---|---|---|
